@@ -1,6 +1,6 @@
-# Morse Code Converter
+# Morse Code Converter And Game
 ## Overview
-The **Morse Code Converter** is an interactive application built for seamless text-to-Morse code and Morse-to-text conversions. Available as a GUI (Tkinter), Web App (Streamlit), and a Telegram Bot, this project combines simplicity with versatility.
+This is an interactive application built for seamless text-to-Morse code, Morse-to-text conversions and to test the knowledge on both. Available as a GUI (Tkinter), Web App (Streamlit), and a Telegram Bot, this project combines simplicity with versatility.
 
 Experience real-time conversions, audio playback, and a history feature that makes it easy to track past conversions. Whether you're exploring Morse code or building similar apps, this project offers a strong foundation!
 
@@ -19,10 +19,12 @@ Experience real-time conversions, audio playback, and a history feature that mak
 
 - **History Tracking:** Maintains a history of the conversions made.
 
+- **Interactive Knowledge Chech:** Allows users to check their knowledge on encoding and decoding the content via a interative game.
+
 ## Technologies Used:
 - **Tkinter:** A GUI for Basic Python applications.
 
-- **Streamlit:** A powerful Python framework for building interactive web applications.
+- **Streamlit:** A powerful Python framework used to build interactive web applications and to deploy in Streamlit Community Cloud.
 
 - **Python:** Core programming language for the application logic.
 
@@ -30,19 +32,34 @@ Experience real-time conversions, audio playback, and a history feature that mak
 
 - **Python Anywhere:** To host the telegram bot script.
 
+- **Nltk:** Used for generating the Logical English words.
+
 ## Dependencies:
-Install all the required dependencies from the `requirements.txt` file. Open your terminal and run the following command:
+Install the required dependencies using the provided `requirements.txt` file.
 
 `pip install -r requirements.txt`
 
+This will install all the necessary libraries, including:
+```
+playsound
+pyttsx3
+streamlit
+python-telegram-bot
+nltk
+```
+
 ## Available Scripts:
-**Morse_Code_01.py:** This is a python script which is deployed for the Terminal.
+**Morse_Code_01.py:** This is a python script which is used for conversion and deployed for the Terminal.
 
-**Morse_Code_02.py:** This is a python script which is deployed using Tkinter.
+**Morse_Code_02.py:** This is a python script which is used for conversion and deployed using Tkinter.
 
-**Morse_Code_03.py:** This is a python script which is deployed using Streamlit.
+**Morse_Code_03.py:** This is a python script which is used for conversion and deployed using Streamlit.
 
-**Morse_Code_04.py:** This is a python script which is deployed for Telegram Bot.
+**Morse_Code_04.py:** This is a python script which is used for conversion and deployed for Telegram Bot.
+
+**Morse_Game_01.py:** This is a python script which is used for knowledge chech (interactive game) and deployed for the Terminal.
+
+**Morse_Game_02.py:** This is a python script which is used for knowledge chech (interactive game) and deployed using Streamlit.
 
 
 ## Steps:
@@ -65,18 +82,32 @@ Install all the required dependencies from the `requirements.txt` file. Open you
 
    `streamlit run morse_code_03.py`
 
-5. Enter your text in the Input Text area.
+   To run Morse Code 04 (Telegram Bot), create a file named `.env` in the same directory. The format of the file should be like this:
 
-6. Select the conversion type:
+   ```
+     [groq]
+     api_key = "your-api-key-here"
+   ```
+   Replace `your-groq-api-key-here` with your actual GROQ CLOUD API key.
+
+   Then use the below line in your terminal.
+
+   `py morse_code_04.py`
+
+6. Enter your text in the Input Text area.
+
+7. Select the conversion type:
 
    English to Morse Code or Morse Code to English
 
-7. Click the Convert button to see the results in the Output area.
+8. Click the Convert button to see the results in the Output area.
 
-8. Click the play button to hear the output as audio.
+9. Click the play button to hear the output as audio.
 
-9. To clear all fields, click the Clear button.
+10. To clear all fields, click the Clear button.
 
-10. To use the telegram bot, open your telegram application and search for `morse_krish_bot`
+11. To use the telegram bot, open your telegram application and search for `morse_krish_bot`
 
-11. Go through the `/help` command and use the bot.
+12. Go through the `/help` command and use the bot.
+
+13. To test your knowledge on conversion, try out   `morse_game_02.py` or click [here.](https://krish-mini-projects-morse-game.streamlit.app)
