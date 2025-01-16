@@ -1,12 +1,12 @@
+# IMPORT NECESSARY LIBRARIES
+
 import streamlit as st
 import nltk
 from nltk.corpus import words
 import random
 
-# Download the NLTK words list if not already downloaded
+# WORD LIST
 nltk.download('words')
-
-# Get the list of all English words from NLTK
 english_words = words.words()
 
 # MORSE CODE DICTIONARY
@@ -21,7 +21,7 @@ morse_dict = {
     " ": "/"
 }
 
-# Function to generate a random word with a specific length
+# GENERATE RANDOM WORD WITH A GIVEN LENGTH
 def generate_random_word(word_length):
     filtered_words = []
     for word in english_words:
@@ -31,10 +31,10 @@ def generate_random_word(word_length):
         return None
     return random.choice(filtered_words)
 
-# Main Streamlit layout
+# MAIN LAYOUT
 st.title("Morse Code Game")
 
-# Initialize session state variables if they don't exist yet
+# INITIALIZE SESSION STATE VARIABLES
 if 'score' not in st.session_state:
     st.session_state.score = 0
 if 'random_word' not in st.session_state:
@@ -46,20 +46,20 @@ if 'display_morse' not in st.session_state:
 if 'user_input' not in st.session_state:
     st.session_state.user_input = ""
 
-# Game options: English word or Morse code
-col1, col2 = st.columns([2, 1])  # Create two columns for layout
+# GAME OPTIONS
+col1, col2 = st.columns([2, 1])
 with col1:
     choice = st.radio("Choose an option:", ["Display English Word", "Display Morse Code"])
 
     word_length = st.number_input("Enter the word length:", min_value=1, max_value=15, value=5)
 
-    # Text input field for the user answer
+    # USER INPUT FIELD
     user_input = st.text_input("Enter the Answer:", value=st.session_state.user_input).strip()
 
 with col2:
-    st.write(f"**Your current score: {st.session_state.score}**")  # Display score on the right side
+    st.write(f"**Your current score: {st.session_state.score}**")
 
-# Button to generate the word, depending on the selected radio option
+# BUTTON TO GENERATE THE WORD, DEPENDING ON THE SELECTED OPTION
 if st.button('Generate Word'):
     if choice == "Display English Word":
         st.session_state.random_word = generate_random_word(word_length)
@@ -79,13 +79,13 @@ if st.button('Generate Word'):
             st.session_state.display_text = f"Generated Morse code: {morse_message}"
             st.session_state.display_morse = morse_message
 
-# Display the generated word or Morse code
+# DISPLAY THE GENERATED WORD OR MORSE CODE
 if st.session_state.display_text:
     st.write(st.session_state.display_text)
 
-# Button to show the hint (Morse Code chart)
+# BUTTON TO SHOW THE HINT
 if st.button("Hint"):
-    if st.session_state.score > 0:  # Deduct points only if the score is greater than 0
+    if st.session_state.score > 0:  # DETECT POINTS ONLY IF THE SCORE IS > 0
         st.session_state.score -= 1
         st.image("Morse Code 02.jpg", caption="Morse Code Chart", use_column_width=True)
         st.warning("Hint used! -1 point.")
@@ -93,16 +93,16 @@ if st.button("Hint"):
         st.image("Morse Code 02.jpg", caption="Morse Code Chart", use_column_width=True)
         st.info("Hint used! Score cannot go below zero.")
 
-# Button to check the answer
+# BUTTON TO CHECK THE ANSWER
 if st.button('Check Answer'):
     random_word = st.session_state.random_word
     if random_word is None:
         st.error("Please generate a word first!")
     else:
         if choice == "Display English Word":
-            # Convert the word to Morse code
+            # CONVERT WORD TO MORSE CODE
             morse_message = " ".join(morse_dict[c] for c in random_word)
-            # Check for correct answer
+            # CHECK FOR CORRECT ANSWER
             if user_input.replace(" ", "") == morse_message.replace(" ", ""):
                 st.success("Correct answer!")
                 st.write(f"Corresponding Morse Code is: {morse_message}")
@@ -111,7 +111,7 @@ if st.button('Check Answer'):
                 st.error(f"Wrong answer! The correct Morse code is: {morse_message}")
         
         elif choice == "Display Morse Code":
-            # Check for correct answer
+            # CHECK FOR CORRECT ANSWER
             if user_input.upper().replace(" ", "") == random_word:
                 st.success("Correct answer!")
                 st.write(f"Corresponding English word is: {random_word}")
@@ -119,5 +119,5 @@ if st.button('Check Answer'):
             else:
                 st.error(f"Wrong answer! The correct English word is: {random_word}")
         
-        # Display current score
+        # DISPLAY CURRENT SCORE
         st.write(f"**Your current score: {st.session_state.score}**")
