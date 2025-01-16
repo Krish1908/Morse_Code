@@ -88,7 +88,7 @@ nltk
    ```
      api_key = "your-api-key-here"
    ```
-   Replace `your-groq-api-key-here` with your actual BotFather API key, then run:
+   Replace `your-api-key-here` with your actual BotFather API key, then run:
 
    `py morse_code_04.py`
 
