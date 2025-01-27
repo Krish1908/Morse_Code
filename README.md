@@ -4,7 +4,7 @@ This interactive application allows for seamless text-to-Morse code and Morse-to
 
 Experience real-time conversions, audio playback, and a history feature that tracks past conversions. Whether you're learning Morse code or building similar apps, this project offers a solid foundation!
 
-## Features:
+## Features
 - **English to Morse Code Conversion:** Convert standard English text into Morse Code.
 
 - **Morse Code to English Conversion:** Decode Morse Code into readable English text.
@@ -34,7 +34,7 @@ Experience real-time conversions, audio playback, and a history feature that tra
 
 - **Nltk:** Used to generate logical English words for the game.
 
-## Dependencies:
+## Dependencies
 Install the required dependencies using the provided `requirements.txt` file.
 
 `pip install -r requirements.txt`
@@ -48,7 +48,7 @@ python-telegram-bot
 nltk
 ```
 
-## Available Scripts:
+## Available Scripts
 **Morse_Code_01.py:** Conversion logic for the terminal.
 
 **Morse_Code_02.py:** Conversion logic using Tkinter for GUI.
@@ -61,7 +61,7 @@ nltk
 
 **Morse_Game_02.py:** Interactive game for testing knowledge (Streamlit).
 
-## Steps:
+## Steps
 
 1. Clone or download this repository.
 
