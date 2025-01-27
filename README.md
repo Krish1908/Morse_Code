@@ -21,7 +21,7 @@ Experience real-time conversions, audio playback, and a history feature that tra
 
 - **Interactive Knowledge Check:** Test your Morse code encoding/decoding skills with an interactive game.
 
-## Technologies Used:
+## Technologies Used
 - **Tkinter:** A GUI for Basic Python applications.
 
 - **Streamlit:** A powerful Python framework for building and deploying interactive web applications.
