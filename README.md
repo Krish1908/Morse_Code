@@ -19,7 +19,7 @@ Experience real-time conversions, audio playback, and a history feature that tra
 
 - **History Tracking:** Maintains a history of the conversions made.
 
-- **Interactive Knowledge Chech:** Test your Morse code encoding/decoding skills with an interactive game.
+- **Interactive Knowledge Check:** Test your Morse code encoding/decoding skills with an interactive game.
 
 ## Technologies Used:
 - **Tkinter:** A GUI for Basic Python applications.
